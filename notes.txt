@@ -1,0 +1,7 @@
+Complete view:
+Laptop -> Local Repository (<HOME_DIR>/.m2) -> Corporate Artifact Repository/Proxy/Cache -> Central Repository
+																						 -> 2nd Repository
+																						 -> 3rd Repository
+
+Developer's view
+Laptop -> Local Repository (<HOME_DIR>/.m2) -> Corporate Artifact Repository
