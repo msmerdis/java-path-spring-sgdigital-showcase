@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * application initialization.
  */
 @Component
-@Profile("sample")
+@Profile("demo-property-injection")
 public class SampleRunner extends AbstractLogComponent implements CommandLineRunner {
 	@Value("${spring.application.name}")
 	private String applicationName;
