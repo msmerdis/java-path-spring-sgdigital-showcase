@@ -1,8 +1,8 @@
-package gr.codelearn.spring.showcase.core.bootstrap;
+package gr.codelearn.spring.showcase.demo.bootstrap;
 
-import gr.codelearn.spring.showcase.core.base.AbstractLogComponent;
-import gr.codelearn.spring.showcase.core.component.Prototype;
-import gr.codelearn.spring.showcase.core.component.Singleton;
+import gr.codelearn.spring.showcase.demo.base.AbstractLogComponent;
+import gr.codelearn.spring.showcase.demo.component.Prototype;
+import gr.codelearn.spring.showcase.demo.component.Singleton;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

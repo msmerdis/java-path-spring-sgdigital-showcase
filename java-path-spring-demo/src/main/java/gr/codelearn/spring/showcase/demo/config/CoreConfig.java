@@ -1,6 +1,6 @@
-package gr.codelearn.spring.showcase.core.config;
+package gr.codelearn.spring.showcase.demo.config;
 
-import gr.codelearn.spring.showcase.core.component.IndependentBean;
+import gr.codelearn.spring.showcase.demo.component.IndependentBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

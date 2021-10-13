@@ -1,7 +1,7 @@
-package gr.codelearn.spring.showcase.core.controller;
+package gr.codelearn.spring.showcase.demo.controller;
 
-import gr.codelearn.spring.showcase.core.base.AbstractLogComponent;
-import gr.codelearn.spring.showcase.core.component.DependentBean;
+import gr.codelearn.spring.showcase.demo.base.AbstractLogComponent;
+import gr.codelearn.spring.showcase.demo.component.DependentBean;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

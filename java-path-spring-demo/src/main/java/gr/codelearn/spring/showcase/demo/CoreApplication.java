@@ -1,4 +1,4 @@
-package gr.codelearn.spring.showcase.core;
+package gr.codelearn.spring.showcase.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

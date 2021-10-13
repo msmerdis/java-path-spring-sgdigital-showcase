@@ -1,4 +1,4 @@
-package gr.codelearn.spring.showcase.core.base;
+package gr.codelearn.spring.showcase.demo.base;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

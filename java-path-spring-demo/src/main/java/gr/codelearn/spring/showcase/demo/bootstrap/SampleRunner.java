@@ -1,6 +1,6 @@
-package gr.codelearn.spring.showcase.core.bootstrap;
+package gr.codelearn.spring.showcase.demo.bootstrap;
 
-import gr.codelearn.spring.showcase.core.base.AbstractLogComponent;
+import gr.codelearn.spring.showcase.demo.base.AbstractLogComponent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;

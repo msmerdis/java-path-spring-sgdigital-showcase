@@ -1,6 +1,6 @@
-package gr.codelearn.spring.showcase.core.component;
+package gr.codelearn.spring.showcase.demo.component;
 
-import gr.codelearn.spring.showcase.core.base.AbstractLogComponent;
+import gr.codelearn.spring.showcase.demo.base.AbstractLogComponent;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
