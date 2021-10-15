@@ -71,15 +71,17 @@ public class MvcController {
 	}
 
 	@GetMapping("/findYourProduct")
-	public String findYourProduct(Model model, @RequestParam(required = false) int productIndex){
-		List<Product> allProducts = productService.findAll();
-		Product product = allProducts.get(productIndex);
-		model.addAttribute("product", product);
+	public String findYourProduct(Model model, @RequestParam(required = false) Integer productIndex){
+		if (productIndex != null){
+			List<Product> allProducts = productService.findAll();
+			Product product = allProducts.get(productIndex);
+			model.addAttribute("product", product);
+		}
 		return "findYourProduct";
 	}
 
 	@PostMapping("/findYourProduct")
-	public String executeFindYourProduct1(Model model, @RequestParam int productIndex){
+	public String executeFindYourProduct1(Model model, @RequestParam Integer productIndex){
 		List<Product> allProducts = productService.findAll();
 		Product product = allProducts.get(productIndex);
 		model.addAttribute("product", product);
@@ -87,7 +89,7 @@ public class MvcController {
 	}
 
 	@GetMapping("/findYourProduct/{index}")
-	public String executeFindYourProduct2(Model model, @PathVariable int index){
+	public String executeFindYourProduct2(Model model, @PathVariable Integer index){
 		List<Product> allProducts = productService.findAll();
 		Product product = allProducts.get(index);
 		model.addAttribute("product", product);
