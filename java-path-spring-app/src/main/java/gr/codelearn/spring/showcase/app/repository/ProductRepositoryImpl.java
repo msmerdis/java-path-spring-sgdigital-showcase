@@ -1,27 +1,23 @@
-package gr.codelearn.spring.showcase.app.service;
+package gr.codelearn.spring.showcase.app.repository;
 
 import gr.codelearn.spring.showcase.app.domain.Product;
-import gr.codelearn.spring.showcase.app.repository.ProductRepository;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
-public class ProductServiceImpl implements ProductService{
-	final ProductRepository productRepository;
+public class ProductRepositoryImpl implements ProductRepository{
+	List<Product> products = new ArrayList<>();
 
 	@Override
 	public void create(final Product product) {
-		productRepository.create(product);
+		products.add(product);
 	}
 
 	@Override
 	public void delete(final Product product) {
-		productRepository.delete(product);
+		products.remove(product);
 	}
 
 	@Override
@@ -36,7 +32,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<Product> findAll() {
-		return productRepository.findAll();
+		return products;
 	}
 
 	@Override

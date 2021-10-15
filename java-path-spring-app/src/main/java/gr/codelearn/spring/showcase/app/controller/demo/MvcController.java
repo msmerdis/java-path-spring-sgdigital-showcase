@@ -42,4 +42,14 @@ public class MvcController {
 		model.addAttribute("products", allProducts);
 		return "allProducts";
 	}
+
+	@GetMapping("/condition")
+	public String condition(Model model){
+		boolean result = true;
+		model.addAttribute("result", result);
+
+		Product product = null;
+		model.addAttribute("product", product);
+		return "condition";
+	}
 }
