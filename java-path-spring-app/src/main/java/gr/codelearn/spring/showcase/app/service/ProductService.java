@@ -5,10 +5,22 @@ import gr.codelearn.spring.showcase.app.domain.Product;
 import java.util.List;
 
 public interface ProductService {
-	void create(Product product);
+	Product create(Product product);
+
+	List<Product> createAll(List<Product> products);
+
+	List<Product> createAll(Product... products);
+
+	void update(Product product);
+
 	void delete(Product product);
+
 	void deleteById(String serial);
-	Product find();
-	List<Product> findAll();
+
 	boolean exists(Product product);
+
+	Product find(final Long id);
+
+	List<Product> findAll();
+
 }

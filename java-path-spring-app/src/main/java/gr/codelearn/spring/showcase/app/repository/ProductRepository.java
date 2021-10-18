@@ -1,15 +1,25 @@
 package gr.codelearn.spring.showcase.app.repository;
 
 import gr.codelearn.spring.showcase.app.domain.Product;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 public interface ProductRepository {
-	void create(Product product);
+	Product create(Product product);
+
+	List<Product> createAll(List<Product> product);
+
+	List<Product> createAll(Product... product);
+
+	void update(Product product);
+
 	void delete(Product product);
+
 	void deleteById(String serial);
-	Product find();
-	List<Product> findAll();
+
 	boolean exists(Product product);
+
+	Product find(final Long id);
+
+	List<Product> findAll();
 }
