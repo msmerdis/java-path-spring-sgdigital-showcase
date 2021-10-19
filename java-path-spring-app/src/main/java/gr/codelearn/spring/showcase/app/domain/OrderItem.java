@@ -1,7 +1,9 @@
 package gr.codelearn.spring.showcase.app.domain;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
@@ -9,8 +11,10 @@ import java.math.BigDecimal;
  * This class represents an order item, a product that is part an order submitted by a customer.
  */
 @Data
-@Builder
-public class OrderItem {
+@SuperBuilder
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class OrderItem extends BaseEntity {
 	private Product product;
 	private Order order;
 	private Integer quantity;
