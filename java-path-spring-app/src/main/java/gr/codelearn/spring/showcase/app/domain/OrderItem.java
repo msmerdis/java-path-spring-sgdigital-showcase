@@ -1,5 +1,6 @@
 package gr.codelearn.spring.showcase.app.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -16,7 +17,6 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 public class OrderItem extends BaseEntity {
 	private Product product;
-	private Order order;
 	private Integer quantity;
 	private BigDecimal price;
 }

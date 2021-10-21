@@ -107,7 +107,7 @@ public class OrderServiceImpl extends AbstractService<Order> implements OrderSer
 	}
 
 	private OrderItem newOrderItem(Order order, Product product, int quantity) {
-		return OrderItem.builder().product(product).order(order).quantity(quantity).price(product.getPrice()).build();
+		return OrderItem.builder().product(product).quantity(quantity).price(product.getPrice()).build();
 	}
 
 	private BigDecimal giveDiscounts(Order order) {
