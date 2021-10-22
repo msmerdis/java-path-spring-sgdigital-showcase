@@ -41,18 +41,25 @@ public class ProductController extends AbstractController<Product> {
 	}
 
 	private JsonNode filteredProducts(Product product, String... ignorableFieldNames){
+		/*
+		 * Method that filters a given product and returns it based on what attributes we have chosen to exclude
+		 * This may be considered a way of dynamic filtering without setting a "global filter" in a product
+		 * configuration
+		 */
 		SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider().setFailOnUnknownId(false);
 		FilterProvider filters = simpleFilterProvider.addFilter("product_filter", SimpleBeanPropertyFilter
 				.serializeAllExcept(ignorableFieldNames));
+		// Local object mapper that will convert our product to a string based on the given filter
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setFilterProvider(filters);
 		ObjectWriter writer = mapper.writer();
 		try {
+			// Converting to json string to filter out attributes we have excluded
 			String jsonString = writer.writeValueAsString(product);
 			return mapper.readTree(jsonString);
 		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+			// Will be caught by the exception handler which handles generic exceptions
+			throw new RuntimeException("Json processing has failed");
 		}
-		return null;
 	}
 }

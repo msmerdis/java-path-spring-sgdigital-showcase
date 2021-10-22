@@ -55,7 +55,9 @@ public class MvcController {
 
 	@GetMapping("/registerProduct")
 	public String getRegisterProduct(Model model) {
-		if(!model.containsAttribute("productForm")) {
+		// Checking if there has been a redirect from the POST request, which usually results to errors shown
+		// If not, then create a new product to match the form
+		if (!model.containsAttribute("productForm")) {
 			model.addAttribute("productForm", new ProductForm());
 		}
 		return "registerProduct";
@@ -64,10 +66,11 @@ public class MvcController {
 	@PostMapping("/registerProduct")
 	public String registerProduct(@Valid @ModelAttribute("productForm") ProductForm productForm,
 								  BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-		if(bindingResult.hasErrors()){
+		if (bindingResult.hasErrors()) {
 			// Add the errors as flash attributes for the GET request
 			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.productForm",
 												 bindingResult);
+			// Also add the product with its fields, to not lose the data the user has written
 			redirectAttributes.addFlashAttribute("productForm", productForm);
 			return "redirect:/mvc/registerProduct";
 		}
@@ -102,9 +105,12 @@ public class MvcController {
 
 	private void createCounterCookie(HttpServletRequest request, HttpServletResponse response) {
 		Cookie cookie;
+		// case 1: cookie array does not exist
 		if (request.getCookies() != null) {
-			cookie = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals("counter")).findAny().orElse(
-					new Cookie("counter", "0"));
+			// case 2: cookie array & "counter" cookie exists
+			cookie = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals("counter")).findAny()
+						   // case 3: cookie array exists but "counter" cookie does not exist
+						   .orElse(new Cookie("counter", "0"));
 			int counterValue = Integer.parseInt(cookie.getValue());
 			cookie.setValue(String.valueOf(++counterValue));
 		} else {
