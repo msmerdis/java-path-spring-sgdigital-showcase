@@ -73,10 +73,15 @@ public class MvcController {
 	}
 
 	private void createCookie(HttpServletRequest request, HttpServletResponse response) {
-		Cookie cookie = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals("counter")).findAny()
-									  .orElse(new Cookie("counter", "0"));
-		int counterValue = Integer.parseInt(cookie.getValue());
-		cookie.setValue(String.valueOf(++counterValue));
+		Cookie cookie;
+		if (request.getCookies() != null) {
+			cookie = Arrays.stream(request.getCookies()).filter(c -> c.getName().equals("counter")).findAny()
+								  .orElse(new Cookie("counter", "0"));
+			int counterValue = Integer.parseInt(cookie.getValue());
+			cookie.setValue(String.valueOf(++counterValue));
+		} else {
+			cookie = new Cookie("counter", "1");
+		}
 		response.addCookie(cookie);
 	}
 
