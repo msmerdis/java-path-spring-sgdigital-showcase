@@ -127,9 +127,14 @@ public class GenerateContentRunner extends AbstractLogComponent implements Comma
 		logger.info("Does customer exist? {}.", (customerService.findByEmail("non-existing@gmail.com") != null));
 
 	}
-
 	/*
 	private void generateOrders() {
+		// Requirements
+		// 1) Implement findBySerial()
+		// 2) Expose all the orders
+		// 3) Expose a find by serial functionality
+		// 4) Expose a functionality that shows all the orders that are above 1500 euros
+
 		// Load customer and create an order by adding/updating/removing content before checking it out
 		Customer firstCustomer = customerService.findByEmail("c.giannacoulis@codehub.gr");
 		Order firstOrder = orderService.initiateOrder(firstCustomer);
@@ -180,6 +185,7 @@ public class GenerateContentRunner extends AbstractLogComponent implements Comma
 		// Checkout 4th order
 		orderService.checkout(fourthOrder, PaymentMethod.CREDIT_CARD);
 	}
-	*/
+	 */
+
 
 }
