@@ -13,7 +13,7 @@
 	<div class="collapse navbar-collapse" id="navbarWithLogOut">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 			<li class="nav-item">
-				<a class="nav-link ${(currentPage=='index')?then('active', '')}" href="/mvc/index">Home <span
+				<a class="nav-link ${(currentPage=='index')?then('active', '')}" href="/mvc">Home <span
 							class="sr-only">
 						(current)</span></a>
 			</li>
@@ -29,8 +29,11 @@
 			<li class="nav-item">
 				<a class="nav-link ${(currentPage=='about')?then('active', '')}" href="/mvc/about">About Us</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link ${(currentPage=='registerProduct')?then('active', '')}"
+				   href="/mvc/registerProduct">Register Product</a>
+			</li>
 		</ul>
-		<a href="/mvc/registerCustomer" class="btn btn-success my-2 my-sm-0" role="button">Register</a>
 	</div>
 </nav>
 <!-- Navbar -->

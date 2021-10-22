@@ -31,7 +31,7 @@ public class MvcController {
 		Product product = Product.builder().name("Tomatoes").category(category).price(BigDecimal.ONE).serial("AA110").build();
 		model.addAttribute("name", "Ioannis");
 		model.addAttribute("product", product);
-		return "demo/hello";
+		return "index";
 	}
 
 	@GetMapping("/redirect")
@@ -39,11 +39,22 @@ public class MvcController {
 		return "redirect:/mvc";
 	}
 
-	@GetMapping("/allProducts")
+	@GetMapping("/ourProducts")
 	public String findAllProduct(Model model){
 		List<Product> allProducts = productService.findAll();
 		model.addAttribute("products", allProducts);
-		return "demo/allProducts";
+		return "ourProducts";
+	}
+
+	@GetMapping("/about")
+	public String about(){
+		return "about";
+	}
+
+
+	@GetMapping("/registerProduct")
+	public String registerProduct(){
+		return "registerProduct";
 	}
 
 	@GetMapping("/condition")
@@ -55,20 +66,8 @@ public class MvcController {
 		return "demo/condition";
 	}
 
-	@GetMapping("/about")
-	public String about(){
-		return "about";
-	}
 
-	@GetMapping("/index")
-	public String index(){
-		return "index";
-	}
 
-	@GetMapping("/ourProducts")
-	public String ourProducts(){
-		return "ourProducts";
-	}
 
 	@GetMapping("/findYourProduct")
 	public String findYourProduct(Model model, @RequestParam(required = false) Integer productIndex){

@@ -33,7 +33,7 @@ public class GenerateContentRunner extends AbstractLogComponent implements Comma
 	public void run(String... args) {
 		generateProducts();
 		generateCustomers();
-		generateOrders();
+		//generateOrders();
 		logger.info("Runner finished");
 	}
 
