@@ -1,5 +1,6 @@
 package gr.codelearn.spring.showcase.app.service;
 
+import gr.codelearn.spring.showcase.app.domain.Customer;
 import gr.codelearn.spring.showcase.app.domain.Product;
 import gr.codelearn.spring.showcase.app.repository.BaseRepository;
 import gr.codelearn.spring.showcase.app.repository.ProductRepository;
@@ -14,5 +15,15 @@ public class ProductServiceImpl extends AbstractService<Product> implements Prod
 	@Override
 	public BaseRepository<Product, Long> getRepository() {
 		return productRepository;
+	}
+
+	@Override
+	public Product findBySerial(final String serial) {
+		return productRepository
+			.findAll()
+			.stream()
+			.filter(p -> p.getSerial().equals(serial))
+			.findAny()
+			.orElse(null);
 	}
 }
