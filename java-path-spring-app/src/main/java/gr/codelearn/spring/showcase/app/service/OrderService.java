@@ -5,6 +5,7 @@ import gr.codelearn.spring.showcase.app.domain.Order;
 import gr.codelearn.spring.showcase.app.domain.PaymentMethod;
 import gr.codelearn.spring.showcase.app.domain.Product;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface OrderService extends BaseService<Order, Long> {
@@ -20,5 +21,6 @@ public interface OrderService extends BaseService<Order, Long> {
 
 	Order checkout(Order order, PaymentMethod paymentMethod);
 
-	List<Order> filterByProduct(Product product);
+	List<Order> filterByProduct(List<Order> orders, Product product);
+	List<Order> filterByMinimumCost(List<Order> orders, BigDecimal cost);
 }

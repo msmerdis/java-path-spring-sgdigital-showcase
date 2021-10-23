@@ -142,11 +142,15 @@ public class OrderServiceImpl extends AbstractService<Order> implements OrderSer
 			.isPresent();
 	}
 
-	public List<Order> filterByProduct(Product product) {
-		return orderRepository
-			.findAll()
-			.stream()
+	public List<Order> filterByProduct(List<Order> orders, Product product) {
+		return orders.stream()
 			.filter(o -> containsItem(o, product))
+			.collect(Collectors.toList());
+	}
+
+	public List<Order> filterByMinimumCost(List<Order> orders, BigDecimal cost) {
+		return orders.stream()
+			.filter(o -> o.getCost().compareTo(cost) >= 0)
 			.collect(Collectors.toList());
 	}
 }

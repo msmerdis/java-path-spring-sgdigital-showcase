@@ -129,9 +129,6 @@ public class GenerateContentRunner extends AbstractLogComponent implements Comma
 	}
 
 	private void generateOrders() {
-		// Requirements
-		// 4) Expose a functionality that shows all the orders that are above 1500 euros
-
 		// Load customer and create an order by adding/updating/removing content before checking it out
 		Customer firstCustomer = customerService.findByEmail("c.giannacoulis@codehub.gr");
 		Order firstOrder = orderService.initiateOrder(firstCustomer);

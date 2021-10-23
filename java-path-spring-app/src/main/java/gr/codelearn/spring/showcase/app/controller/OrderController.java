@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +35,25 @@ public class OrderController extends AbstractController<Order> {
 		// convert the serial to a product
 		Product product = productService.findBySerial(serial);
 
+		// get the full list orders
+		List<Order> orders = orderService.findAll();
+
+		// filter by serial
+		orders = orderService.filterByProduct(orders, product);
+
 		// filter orders based on that product and return the list
-		return ResponseEntity.ok(ApiResponse.<List<Order>>builder().data(orderService.filterByProduct(product)).build());
+		return ResponseEntity.ok(ApiResponse.<List<Order>>builder().data(orders).build());
+	}
+
+	@GetMapping(value = "", params = "minimumCost")
+	public ResponseEntity<ApiResponse<List<Order>>> findByMinimumCost(@RequestParam("minimumCost") final BigDecimal cost) {
+		// get the full list orders
+		List<Order> orders = orderService.findAll();
+
+		// filter by minimum cost
+		orders = orderService.filterByMinimumCost(orders, cost);
+
+		// filter orders based on that product and return the list
+		return ResponseEntity.ok(ApiResponse.<List<Order>>builder().data(orders).build());
 	}
 }
