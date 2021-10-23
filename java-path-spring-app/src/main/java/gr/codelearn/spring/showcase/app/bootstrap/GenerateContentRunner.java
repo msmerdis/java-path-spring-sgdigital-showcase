@@ -130,7 +130,6 @@ public class GenerateContentRunner extends AbstractLogComponent implements Comma
 
 	private void generateOrders() {
 		// Requirements
-		// 3) Expose a find by serial functionality
 		// 4) Expose a functionality that shows all the orders that are above 1500 euros
 
 		// Load customer and create an order by adding/updating/removing content before checking it out

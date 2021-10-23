@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -128,5 +130,23 @@ public class OrderServiceImpl extends AbstractService<Order> implements OrderSer
 					 totalDiscount, finalCost);
 
 		return finalCost;
+	}
+
+	public boolean containsItem (Order order, Product product) {
+		// iterate through all items in the order and check
+		// if product exists in the order
+		return order.getOrderItems()
+			.stream()
+			.filter(p -> p.getProduct().equals(product))
+			.findFirst()
+			.isPresent();
+	}
+
+	public List<Order> filterByProduct(Product product) {
+		return orderRepository
+			.findAll()
+			.stream()
+			.filter(o -> containsItem(o, product))
+			.collect(Collectors.toList());
 	}
 }

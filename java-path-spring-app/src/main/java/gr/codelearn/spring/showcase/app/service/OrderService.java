@@ -5,6 +5,8 @@ import gr.codelearn.spring.showcase.app.domain.Order;
 import gr.codelearn.spring.showcase.app.domain.PaymentMethod;
 import gr.codelearn.spring.showcase.app.domain.Product;
 
+import java.util.List;
+
 public interface OrderService extends BaseService<Order, Long> {
 	Order initiateOrder(Customer customer);
 
@@ -14,5 +16,9 @@ public interface OrderService extends BaseService<Order, Long> {
 
 	void removeItem(Order order, Product product);
 
+	boolean containsItem (Order order, Product product);
+
 	Order checkout(Order order, PaymentMethod paymentMethod);
+
+	List<Order> filterByProduct(Product product);
 }
