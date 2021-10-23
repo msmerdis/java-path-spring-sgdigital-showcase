@@ -33,7 +33,7 @@ public class GenerateContentRunner extends AbstractLogComponent implements Comma
 	public void run(String... args) {
 		generateProducts();
 		generateCustomers();
-		//generateOrders();
+		generateOrders();
 		logger.info("Runner finished");
 	}
 
@@ -130,7 +130,6 @@ public class GenerateContentRunner extends AbstractLogComponent implements Comma
 
 	private void generateOrders() {
 		// Requirements
-		// 2) Expose all the orders
 		// 3) Expose a find by serial functionality
 		// 4) Expose a functionality that shows all the orders that are above 1500 euros
 
